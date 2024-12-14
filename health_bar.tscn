@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://bl4q0iyk7a48w"]
+
+[ext_resource type="Script" path="res://health_bar.gd" id="1_g1s65"]
+[ext_resource type="PackedScene" uid="uid://btuggnuh1hlk7" path="res://heart.tscn" id="2_qrsxy"]
+
+[node name="HBoxContainer" type="HBoxContainer"]
+script = ExtResource("1_g1s65")
+heart = ExtResource("2_qrsxy")

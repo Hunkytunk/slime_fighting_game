@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://btuggnuh1hlk7"]
+
+[ext_resource type="SpriteFrames" uid="uid://c4t03eahtfdft" path="res://heart.tres" id="1_dwm4a"]
+
+[node name="heart" type="Panel"]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(45, 45)
+offset_right = 45.0
+offset_bottom = 45.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(0.1, 0.1)
+sprite_frames = ExtResource("1_dwm4a")
+centered = false
+offset = Vector2(-32, -32)
