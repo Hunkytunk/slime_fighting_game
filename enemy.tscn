@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://b72wmgdc3j58c"]
+
+[ext_resource type="SpriteFrames" uid="uid://c51v8p6c5ta4f" path="res://enemy.tres" id="1_3igt8"]
+
+[node name="enemy" type="CharacterBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = ExtResource("1_3igt8")
