@@ -8,9 +8,11 @@
 [ext_resource type="PackedScene" uid="uid://bl4q0iyk7a48w" path="res://health_bar.tscn" id="5_0wdph"]
 [ext_resource type="PackedScene" uid="uid://v6uuo1msai7k" path="res://slime.tscn" id="7_bw4gt"]
 
-[node name="map" type="Node2D"]
+[node name="map" type="Node2D" node_paths=PackedStringArray("player")]
 script = ExtResource("1_3chjv")
 enemy = ExtResource("7_bw4gt")
+player = NodePath("player")
+death_screen_path = "res://death_screen.tscn"
 
 [node name="layer_holder" type="Node2D" parent="."]
 

@@ -29,6 +29,7 @@ func _physics_process(delta: float) -> void:
 
 	move_and_slide()
 
+
 func _ready() -> void:
 	$AnimatedSprite2D.play("default")
 

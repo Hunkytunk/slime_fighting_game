@@ -13,9 +13,9 @@ func _ready() -> void:
 		animated_sprite.play()
 		hearts.append(heart_instance)
 		add_child(heart_instance)
-	player.hurt.connect(_on_hurt)
+	player.hurt.connect(_on_player_hurt)
 
-func _on_hurt(by):
+func _on_player_hurt():
 	var lower = mini(player.life, current_life)
 	var upper = maxi(player.life, current_life)
 	for i in range(lower, upper):

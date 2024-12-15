@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://b72wmgdc3j58c"]
+[gd_scene load_steps=7 format=3 uid="uid://b72wmgdc3j58c"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_tfycn"]
 [ext_resource type="Shader" path="res://chroma_key_shader.gdshader" id="2_3rxau"]
 [ext_resource type="VideoStream" path="res://default_dance.ogv" id="3_13we3"]
+[ext_resource type="AudioStream" uid="uid://me4tkmtj4lrj" path="res://vine_boom.mp3" id="4_lad5s"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_grci5"]
 radius = 14.0
@@ -28,3 +29,10 @@ scale = Vector2(0.1, 0.1)
 stream = ExtResource("3_13we3")
 autoplay = true
 loop = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_lad5s")
+
+[node name="invulnerable_timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="invulnerable_timer" to="." method="_on_invulnerable_timer_timeout"]

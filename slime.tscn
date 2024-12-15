@@ -1,12 +1,16 @@
-[gd_scene load_steps=5 format=3 uid="uid://v6uuo1msai7k"]
+[gd_scene load_steps=7 format=3 uid="uid://v6uuo1msai7k"]
 
 [ext_resource type="SpriteFrames" uid="uid://dq6pgfjvajtjx" path="res://slime.tres" id="1_2x72n"]
 [ext_resource type="Script" path="res://slime.gd" id="1_rc6v5"]
 [ext_resource type="AudioStream" uid="uid://3wjmt7vu41la" path="res://Slime effect.wav" id="2_0lcys"]
+[ext_resource type="Script" path="res://slime_area.gd" id="4_baro5"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tsh2d"]
+height = 36.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_s7fgd"]
 radius = 11.0
-height = 40.0
+height = 38.0
 
 [node name="slime" type="CharacterBody2D"]
 collision_layer = 8
@@ -29,10 +33,12 @@ stream = ExtResource("2_0lcys")
 wait_time = 3.0
 one_shot = true
 
-[node name="hurt" type="Area2D" parent="." groups=["enemies"]]
+[node name="slime_area" type="Area2D" parent="."]
+script = ExtResource("4_baro5")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="hurt"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="slime_area"]
 rotation = 1.5708
-shape = SubResource("CapsuleShape2D_tsh2d")
+shape = SubResource("CapsuleShape2D_s7fgd")
 
 [connection signal="timeout" from="jump_timer" to="." method="_on_jump_timer_timeout"]
+[connection signal="body_entered" from="slime_area" to="slime_area" method="_on_body_entered"]
