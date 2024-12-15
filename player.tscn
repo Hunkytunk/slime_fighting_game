@@ -1,24 +1,30 @@
-[gd_scene load_steps=5 format=3 uid="uid://v6uuo1msai7k"]
+[gd_scene load_steps=6 format=3 uid="uid://b72wmgdc3j58c"]
 
-[ext_resource type="Script" path="res://player.gd" id="1_2bvit"]
-[ext_resource type="SpriteFrames" uid="uid://dq6pgfjvajtjx" path="res://player.tres" id="2_67x06"]
-[ext_resource type="AudioStream" uid="uid://3wjmt7vu41la" path="res://Slime effect.wav" id="3_vqerf"]
+[ext_resource type="Script" path="res://player.gd" id="1_tfycn"]
+[ext_resource type="Shader" path="res://chroma_key_shader.gdshader" id="2_3rxau"]
+[ext_resource type="VideoStream" path="res://default_dance.ogv" id="3_13we3"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tsh2d"]
-height = 38.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_grci5"]
+radius = 14.0
+height = 72.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_nmyi8"]
+shader = ExtResource("2_3rxau")
 
 [node name="player" type="CharacterBody2D"]
-collision_mask = 3
-script = ExtResource("1_2bvit")
+collision_mask = 7
+script = ExtResource("1_tfycn")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-rotation = 1.5708
-shape = SubResource("CapsuleShape2D_tsh2d")
+shape = SubResource("CapsuleShape2D_grci5")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-texture_filter = 1
-scale = Vector2(3, 3)
-sprite_frames = ExtResource("2_67x06")
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("3_vqerf")
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+material = SubResource("ShaderMaterial_nmyi8")
+offset_left = -96.0
+offset_top = -55.0
+offset_right = 1824.0
+offset_bottom = 1033.0
+scale = Vector2(0.1, 0.1)
+stream = ExtResource("3_13we3")
+autoplay = true
+loop = true

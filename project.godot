@@ -22,3 +22,8 @@ Info="*res://info.gd"
 [display]
 
 window/stretch/mode="canvas_items"
+
+[global_group]
+
+players="The group for player scenes"
+enemies=""
