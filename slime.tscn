@@ -12,7 +12,7 @@ height = 36.0
 radius = 11.0
 height = 38.0
 
-[node name="slime" type="CharacterBody2D"]
+[node name="slime" type="CharacterBody2D" groups=["enemies"]]
 collision_layer = 8
 collision_mask = 13
 script = ExtResource("1_rc6v5")
@@ -28,6 +28,7 @@ sprite_frames = ExtResource("1_2x72n")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_0lcys")
+volume_db = -20.0
 
 [node name="jump_timer" type="Timer" parent="."]
 wait_time = 3.0
@@ -42,3 +43,4 @@ shape = SubResource("CapsuleShape2D_s7fgd")
 
 [connection signal="timeout" from="jump_timer" to="." method="_on_jump_timer_timeout"]
 [connection signal="body_entered" from="slime_area" to="slime_area" method="_on_body_entered"]
+[connection signal="body_exited" from="slime_area" to="slime_area" method="_on_body_exited"]

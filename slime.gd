@@ -4,6 +4,11 @@ extends CharacterBody2D
 const SPEED = 100.0
 const JUMP_VELOCITY = -600.0
 
+func _ready() -> void:
+	$AnimatedSprite2D.play("default")
+	$AnimatedSprite2D.frame = randi_range(0, 5)
+
+
 func _physics_process(delta: float) -> void:
 	var player : CharacterBody2D = get_tree().get_nodes_in_group("players")[0]
 	
@@ -25,14 +30,15 @@ func _physics_process(delta: float) -> void:
 		direction = 1
 	else:
 		direction = -1
-	velocity.x = direction * SPEED * randf_range(0.8, 1.0)
+	velocity.x = direction * SPEED
 
 	move_and_slide()
 
 
-func _ready() -> void:
-	$AnimatedSprite2D.play("default")
-
 func _on_jump_timer_timeout() -> void:
 	velocity.y = JUMP_VELOCITY
 	$AudioStreamPlayer.play()
+
+func die():
+	get_parent().get_parent().get_parent().spawn_enemies(1, true) #bad
+	queue_free()

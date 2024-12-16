@@ -1,0 +1,69 @@
+[gd_scene load_steps=3 format=3 uid="uid://m6o05l4geceo"]
+
+[ext_resource type="VideoStream" path="res://invisible.ogv" id="1_4fg1b"]
+[ext_resource type="Script" path="res://start_game.gd" id="1_fl52n"]
+
+[node name="main_menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+layout_mode = 0
+offset_right = 3840.0
+offset_bottom = 2160.0
+scale = Vector2(0.3, 0.3)
+stream = ExtResource("1_4fg1b")
+volume_db = -20.0
+autoplay = true
+loop = true
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -388.5
+offset_right = 388.5
+offset_bottom = 55.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 40
+text = "mhmmhmhmhmhmhmhmmhmhmhmh"
+
+[node name="start_game" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -4.0
+offset_top = -4.0
+offset_right = 4.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 60
+text = "Start the game"
+script = ExtResource("1_fl52n")
+map = "res://map.tscn"
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -126.0
+offset_top = -23.0
+offset_right = 126.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 20
+text = "Fy faaaaen godot er ass på video"
+
+[connection signal="pressed" from="start_game" to="start_game" method="_on_pressed"]

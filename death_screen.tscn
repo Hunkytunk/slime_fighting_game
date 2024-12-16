@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://cysuwbjfc4ma"]
+[gd_scene load_steps=4 format=3 uid="uid://cysuwbjfc4ma"]
 
 [ext_resource type="Script" path="res://death_screen.gd" id="1_2iwh2"]
 [ext_resource type="VideoStream" path="res://native_default_dance.ogv" id="2_j4yvy"]
+[ext_resource type="Script" path="res://play_again.gd" id="3_f05ga"]
 
 [node name="death_screen" type="Control"]
 layout_mode = 3
@@ -62,3 +63,24 @@ offset_bottom = 55.0
 grow_horizontal = 2
 theme_override_font_sizes/font_size = 40
 text = "💀💀💀💀NOOOOOOOOOB 💀💀💀💀"
+
+[node name="play_again" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.6
+anchor_right = 0.5
+anchor_bottom = 0.6
+offset_left = -77.5
+offset_top = -25.0
+offset_right = 77.5
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_hover_color = Color(0.46246, 0.0279915, 0.365073, 1)
+theme_override_font_sizes/font_size = 30
+text = "Play again"
+script = ExtResource("3_f05ga")
+map = "res://map.tscn"
+
+[connection signal="pressed" from="play_again" to="play_again" method="_on_pressed"]
