@@ -14,6 +14,10 @@ enemy = ExtResource("7_bw4gt")
 player = NodePath("player")
 death_screen_path = "res://death_screen.tscn"
 
+[node name="spawn_timer" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
 [node name="layer_holder" type="Node2D" parent="."]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="layer_holder"]
@@ -69,3 +73,5 @@ position = Vector2(1361, 554)
 
 [node name="player" parent="." groups=["players"] instance=ExtResource("2_ufl2t")]
 position = Vector2(307, 245)
+
+[connection signal="timeout" from="spawn_timer" to="." method="_on_spawn_timer_timeout"]

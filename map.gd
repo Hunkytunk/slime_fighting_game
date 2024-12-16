@@ -26,3 +26,8 @@ func spawn_enemies(count, reset_y_shift : bool):
 func _on_player_hurt():
 	if player.life == 0:
 		get_tree().change_scene_to_file(death_screen_path)
+
+
+func _on_spawn_timer_timeout() -> void:
+	spawn_enemies(30, true)
+	$spawn_timer.start()
